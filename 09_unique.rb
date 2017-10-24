@@ -19,5 +19,9 @@
 #
 
 def unique (mylist)
-  # Your code here
+  num = {}
+  mylist.each do |n|
+    num[n] = 1
+  end
+  return num.keys
 end
