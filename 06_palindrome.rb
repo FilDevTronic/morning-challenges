@@ -3,7 +3,7 @@
 # Write a method that will take a word as a string and
 # return a boolean indicating whether or not the word
 # is a palindrome.
-#
+
 # Difficulty:
 # 3/10
 #
