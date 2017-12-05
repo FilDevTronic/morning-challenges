@@ -24,14 +24,22 @@ import './App.css';
 class App extends Component {
   // Our initital state. An empty userEmail.
   state = {
-    userEmail: ''
+    userEmail: '',
+    isLoading: true
   }
   render() {
     return (
       <div className="App">
-        <p className="App-intro">
-          Welcome, { this.state.userEmail }
-        </p>
+        {this.state.isLoading ?
+          <p className="App-intro">
+            LOADING...
+          </p>
+          :
+          <p className="App-intro">
+            Welcome, {this.state.userEmail}
+          </p>
+        }
+
       </div>
     );
   }
@@ -42,7 +50,8 @@ class App extends Component {
       axios.get('https://randomuser.me/api/').then((response) => {
         // Update the state with the random user's email
         this.setState({
-          userEmail: response.data.results[0].email
+          userEmail: response.data.results[0].email,
+          isLoading: false
         })
       })
     }, 2000)
