@@ -25,21 +25,22 @@ class App extends Component {
   // Our initital state. An empty userEmail.
   state = {
     userEmail: '',
-    isLoading: true
+    isLoading: true,
+    error: null
   }
+
   render() {
     return (
       <div className="App">
-        {this.state.isLoading ?
-          <p className="App-intro">
-            LOADING...
-          </p>
-          :
-          <p className="App-intro">
-            Welcome, {this.state.userEmail}
-          </p>
-        }
-
+        {(() => {
+          if (!this.state.error && this.state.isLoading ) {
+            return <p className="App-intro">LOADING...</p>
+          } else if (!this.state.error && !this.state.isLoading) {
+            return <p className="App-intro">Welcome, {this.state.userEmail}</p>
+          } else {
+            return <p className="App-intro"> {this.state.error}</p>
+          }
+        })()}
       </div>
     );
   }
@@ -47,13 +48,21 @@ class App extends Component {
     // setTimeout added to simulate a slow network
     setTimeout(() => {
       // Get a random user from the randomuser api
-      axios.get('https://randomuser.me/api/').then((response) => {
-        // Update the state with the random user's email
-        this.setState({
-          userEmail: response.data.results[0].email,
-          isLoading: false
+      axios.get('https://randomuser.me/api/')
+        .then((response) => {
+          // Update the state with the random user's email
+          this.setState({
+            userEmail: response.data.results[0].email,
+            isLoading: false
+          });
         })
-      })
+        .catch((error) => {
+          console.log('An error has ocurred!', error);
+          this.setState({
+            error: 'Something went wrong',
+            isLoading: false
+          })
+        })
     }, 2000)
   }
 }
