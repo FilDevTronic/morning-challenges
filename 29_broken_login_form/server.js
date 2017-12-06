@@ -24,7 +24,10 @@
 */
 
 const express = require('express');
+const bodyParser = require("body-parser");
 const app = express();
+
+app.use(bodyParser.urlencoded({ extended: true }));
 
 // Allow access to everything in /public.
 // This is for our stylesheets & images.
@@ -38,7 +41,18 @@ app.get("/", (req, res) => {
 });
 
 app.post("/secure", (req, res) => {
-  res.render('secure');
+  let password = req.body.password;
+  let check = req.body.agree;
+  if (password === 'dog' && check === true) {
+    console.log(`Password ${password} entered, logged in`);
+    res.render("secure");
+  } else if (password === 'dog' && !check === true) {
+    console.log('User did not agree');
+    res.status(401).send('You must agree before proceeding');
+  } else {
+    console.log('Wrong password entered');
+    res.status(401).send('Wrong password!');
+  }
 });
 
 app.listen(3000);
