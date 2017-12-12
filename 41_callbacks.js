@@ -13,12 +13,12 @@ run sayHello after a delay. In this case, 'sayHello' is our callback.
 
 */
 
-const sayHello = () => {
-  console.log('Hello!')
-}
+// const sayHello = () => {
+//   console.log('Hello!')
+// }
 
 // Run sayHello after a two second delay.
-setTimeout(sayHello, 2000);
+// setTimeout(sayHello, 2000);
 
 
 /*
@@ -30,13 +30,13 @@ give it a name. This is called an anonymous function.
 
 */
 
-const names = ['Jane', 'John', 'Jack']
+// const names = ['Jane', 'John', 'Jack']
 
-names.forEach((name) => {
-  // I'm a function, too 😢
-  // #anonymousFunctionsAreFunctionsToo #neverForget #whadaYaMeanWhadaYaMean
-  console.log(name)
-})
+// names.forEach((name) => {
+//   // I'm a function, too 😢
+//   // #anonymousFunctionsAreFunctionsToo #neverForget #whadaYaMeanWhadaYaMean
+//   console.log(name)
+// })
 
 
 /*
@@ -48,11 +48,11 @@ Anonymous no more, my friend.
 
 */
 
-const printName = (name) => {
-  console.log(name)
-}
+// const printName = (name) => {
+//   console.log(name)
+// }
 
-names.forEach(printName)
+// names.forEach(printName)
 
 
 /*
@@ -75,6 +75,7 @@ Goodbye!
 
 
 
+
 BEAST MODE
 ----------
 Warning: brain explosion ahead. Push through:
@@ -89,3 +90,21 @@ GOT THIS FAR?
 Implement .map
 
 */
+
+// const sayGreetings = (callback) => {
+//   console.log('Greetings!')
+//   callback()
+// }
+
+// const sayNiceToMeetYou = () => {
+//   console.log('Nice to meet you!')
+// }
+
+// const sayGoodbye = () => {
+//   console.log('Goodbye!')
+// }
+
+// sayGreetings(sayNiceToMeetYou)
+// sayGreetings(sayGoodbye)
+
+/*----------------*/
