@@ -14,17 +14,20 @@ Run the code to validate your expectations.
 
 */
 
-const waitFor = (delay, cb) => {
-  setTimeout(cb, delay * 1000) // setTimeout delay is in milliseconds
+const waitFor = (delay) => {
+  return new Promise((resolve, reject) => {
+    setTimeout(() => { resolve('Success'), reject('Something went wrong') }, delay * 1000) // setTimeout delay is in milliseconds
+  })
+
 }
 
-waitFor(3, () => {
-  console.log('Finished waiting for 3 seconds!')
-})
+// waitFor(3, () => {
+//   console.log('Finished waiting for 3 seconds!')
+// })
 
-waitFor(1, () => {
-  console.log('Finished waiting for 1 second!')
-})
+// waitFor(1, () => {
+//   console.log('Finished waiting for 1 second!')
+// })
 
 
 /*
@@ -42,13 +45,13 @@ If your solution is correct, the following code should work:
 
 */
 
-// waitFor(3).then(() => {
-//   console.log('Finished waiting for 3 seconds!')
-// })
-//
-// waitFor(1).then(() => {
-//   console.log('Finished waiting for 1 second!')
-// })
+waitFor(3).then(() => {
+  console.log('Finished waiting for 3 seconds!')
+})
+
+waitFor(1).then(() => {
+  console.log('Finished waiting for 1 second!')
+})
 
 
 /*
