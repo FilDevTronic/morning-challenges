@@ -15,8 +15,10 @@ Run the code to validate your expectations.
 */
 
 const waitFor = (delay) => {
-  return new Promise((resolve, reject) => {
-    setTimeout(() => { resolve('Success'), reject('Something went wrong') }, delay * 1000) // setTimeout delay is in milliseconds
+  return new Promise((resolve) => {
+    setTimeout(() => {
+      resolve('Success');
+    }, delay * 1000) // setTimeout delay is in milliseconds
   })
 
 }
